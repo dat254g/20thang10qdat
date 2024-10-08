@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng 20/11</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Chúc Mừng Ngày Nhà Giáo Việt Nam 20/11!</h1>
+        <p>Hãy gửi lời chúc tốt đẹp đến các bạn nữ nhé!</p>
+        
+        <form id="messageForm">
+            <input type="text" id="name" placeholder="Tên của bạn" required>
+            <input type="email" id="email" placeholder="Email của bạn" required>
+            <textarea id="message" placeholder="Nhập lời chúc của bạn..." required></textarea>
+            <button type="submit">Gửi Lời Chúc</button>
+        </form>
+
+        <div id="messagesContainer">
+            <h2>Những Lời Chúc Đã Nhận:</h2>
+            <ul id="messagesList"></ul>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('messageForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Ngăn chặn gửi form
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Tạo một mục danh sách mới
+            const li = document.createElement('li');
+            li.innerHTML = `<strong>${name}</strong> (${email}): ${message}`;
+
+            // Thêm mục vào danh sách
+            document.getElementById('messagesList').appendChild(li);
+
+            // Xóa thông tin trong form sau khi gửi
+            document.getElementById('messageForm').reset();
+        });
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #5cb85c;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+        #messagesContainer {
+            margin-top: 20px;
+        }
+    </style>
+</body>
+</html>
